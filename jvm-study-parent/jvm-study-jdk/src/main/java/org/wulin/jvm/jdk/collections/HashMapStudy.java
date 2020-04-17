@@ -33,7 +33,7 @@ public class HashMapStudy {
 	
 	@Test
 	public void putTest() {
-		stringMap.put("1", 1);
+		stringMap.put("1", 11);
 		stringMap.put("2", 2);
 		
 		//Aa,BB 的hash值是一样的

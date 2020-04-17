@@ -1,6 +1,7 @@
 package org.wulin.jvm.jdk.collections;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -32,5 +33,14 @@ public class ArrayListStudy {
 		
 		Integer integer = list.get(5);
 		Assert.assertEquals(5d, (double)integer,10D);
+	}
+	
+	@Test
+	public void listToArray() {
+		List<Long> list = new ArrayList<>();
+		list.add(1L);
+		
+		Long[] array = list.toArray(new Long[] {});
+		System.out.println(array);
 	}
 }
