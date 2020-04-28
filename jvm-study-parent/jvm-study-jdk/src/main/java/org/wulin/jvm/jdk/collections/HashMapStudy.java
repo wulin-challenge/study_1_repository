@@ -36,7 +36,7 @@ public class HashMapStudy {
 		stringMap.put("1", 11);
 		stringMap.put("2", 2);
 		
-		//Aa,BB 的hash值是一样的
+		//Aa,BB,11 的hash值是一样的
 		
 		stringMap.put("Aa", 33);
 		stringMap.put("BB", 44);

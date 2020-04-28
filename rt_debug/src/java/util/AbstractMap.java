@@ -29,6 +29,8 @@ import java.util.Map.Entry;
 /**
  * This class provides a skeletal implementation of the <tt>Map</tt>
  * interface, to minimize the effort required to implement this interface.
+ * 
+ * <p> 此类提供Map接口的基本实现，以最大程度地减少实现此接口所需的工作。
  *
  * <p>To implement an unmodifiable map, the programmer needs only to extend this
  * class and provide an implementation for the <tt>entrySet</tt> method, which
@@ -36,27 +38,40 @@ import java.util.Map.Entry;
  * will, in turn, be implemented atop <tt>AbstractSet</tt>.  This set should
  * not support the <tt>add</tt> or <tt>remove</tt> methods, and its iterator
  * should not support the <tt>remove</tt> method.
+ * 
+ * <p> 要实现不可修改的地图，程序员只需扩展此类并为entrySet方法提供实现，该方法将返回地图映射的set-view。
+ * 通常，返回的集又将在AbstractSet之上实现。该集合不应该支持add或remove方法，
+ * 并且它的迭代器也不应支持remove方法。
  *
  * <p>To implement a modifiable map, the programmer must additionally override
  * this class's <tt>put</tt> method (which otherwise throws an
  * <tt>UnsupportedOperationException</tt>), and the iterator returned by
  * <tt>entrySet().iterator()</tt> must additionally implement its
  * <tt>remove</tt> method.
+ * 
+ * <p> 要实现可修改的映射，程序员必须另外重写此类的put方法（否则将引发
+ * UnsupportedOperationException），并且entrySet（）。iterator（）返回的迭代器必须另外实现其remove方法。
  *
  * <p>The programmer should generally provide a void (no argument) and map
  * constructor, as per the recommendation in the <tt>Map</tt> interface
  * specification.
+ * 
+ * <p> 程序员通常应按照Map接口规范中的建议提供一个void（无参数）和map构造函数。
  *
  * <p>The documentation for each non-abstract method in this class describes its
  * implementation in detail.  Each of these methods may be overridden if the
  * map being implemented admits a more efficient implementation.
+ * 
+ * <p> 此类中每个非抽象方法的文档都详细描述了其实现。如果要实现的地图允许更有效的实现，则可以覆盖这些方法中的每一个。
  *
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
+ * 
+ * <p> 此类是Java Collections Framework的成员。
  *
- * @param <K> the type of keys maintained by this map
- * @param <V> the type of mapped values
+ * @param <K> the type of keys maintained by this map - 该地图维护的键的类型
+ * @param <V> the type of mapped values - 映射值的类型
  *
  * @author  Josh Bloch
  * @author  Neal Gafter
@@ -69,17 +84,21 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
     /**
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
+     * 
+     * <p> 唯一的构造函数。 （用于子类构造函数的调用，通常是隐式的。）
      */
     protected AbstractMap() {
     }
 
-    // Query Operations
+    // Query Operations - 查询操作
 
     /**
      * {@inheritDoc}
      *
      * @implSpec
      * This implementation returns <tt>entrySet().size()</tt>.
+     * 
+     * <p> 返回此映射中的键值映射数。 如果映射包含多个Integer.MAX_VALUE元素，则返回Integer.MAX_VALUE。
      */
     public int size() {
         return entrySet().size();
@@ -104,7 +123,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
      * <tt>true</tt> is returned.  If the iteration terminates without
      * finding such an entry, <tt>false</tt> is returned.  Note that this
      * implementation requires linear time in the size of the map.
-     *
+     * 
      * @throws ClassCastException   {@inheritDoc}
      * @throws NullPointerException {@inheritDoc}
      */
@@ -136,6 +155,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
      * finding such an entry, <tt>false</tt> is returned.  Note that this
      * implementation requires linear time in the size of the map; many
      * implementations will override this method.
+     * 
      *
      * @throws ClassCastException   {@inheritDoc}
      * @throws NullPointerException {@inheritDoc}

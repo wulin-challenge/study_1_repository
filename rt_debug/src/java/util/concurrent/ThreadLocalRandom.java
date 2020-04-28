@@ -966,15 +966,26 @@ public class ThreadLocalRandom extends Random {
      * sequences for which a cheap RNG suffices and for which it could
      * in principle disrupt user-visible statistical properties of the
      * main ThreadLocalRandom if we were to use it.
+     * 
+     * <p> 可以在使用它们的类中找到以下方法的用法说明。 简而言之，线程的“ probe”值是一个非零哈希码，
+     * 相对于两个碰撞空间的任何幂次，它（可能）不会与其他现有线程发生冲突。 发生碰撞时，将对其进行伪随机调整
+     * （使用Marsaglia XorShift）。 nextSecondarySeed方法在与ThreadLocalRandom相同的
+     * 上下文中使用，但仅用于瞬态用法，例如随机自适应自旋/块序列，廉价的RNG足以满足这些需求，并且原则上它可
+     * 以破坏主ThreadLocalRandom的用户可见的统计属性（如果我们 使用它。
      *
-     * Note: Because of package-protection issues, versions of some
+     * <p> Note: Because of package-protection issues, versions of some
      * these methods also appear in some subpackage classes.
+     * 
+     * <p> 注意：由于软件包保护问题，某些子软件包类中也会出现其中一些方法的版本。
      */
 
     /**
      * Returns the probe value for the current thread without forcing
      * initialization. Note that invoking ThreadLocalRandom.current()
      * can be used to force initialization on zero return.
+     * 
+     * <p> 返回当前线程的探测值，而无需强制初始化。 请注意，调用ThreadLocalRandom.current（）
+     * 可用于在零返回时强制初始化。
      */
     static final int getProbe() {
         return UNSAFE.getInt(Thread.currentThread(), PROBE);
