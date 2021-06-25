@@ -50,9 +50,15 @@ import sun.misc.Unsafe;
  * may be useful when creating synchronizers such as
  * multilevel locks and barriers that require
  * 64 bits of state.
+ * 
+ * <p> 一个AbstractQueuedSynchronizer版本，其中同步状态保持很长的时间。 此类具有与
+ * AbstractQueuedSynchronizer完全相同的结构，属性和方法，不同之处在于，所有与状态相关
+ * 的参数和结果均定义为long而不是int。 当创建需要64位状态的同步器（例如多级锁和屏障）时，此类可能很有用。
  *
  * <p>See {@link AbstractQueuedSynchronizer} for usage
  * notes and examples.
+ * 
+ * <p> 有关用法说明和示例，请参见AbstractQueuedSynchronizer。
  *
  * @since 1.6
  * @author Doug Lea

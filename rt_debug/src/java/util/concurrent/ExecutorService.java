@@ -215,22 +215,32 @@ public interface ExecutorService extends Executor {
      * Future representing the pending results of the task. The
      * Future's {@code get} method will return the task's result upon
      * successful completion.
+     * 
+     * <p> 提交执行任务的返回值任务，并返回表示任务的未决结果的Future。 Future的get方法将在成功完成后返回任务的结果。
      *
      * <p>
      * If you would like to immediately block waiting
      * for a task, you can use constructions of the form
      * {@code result = exec.submit(aCallable).get();}
+     * 
+     * <p> 如果您想立即阻止等待任务，则可以使用result = exec.submit（aCallable）.get（）;形式的构造。
      *
      * <p>Note: The {@link Executors} class includes a set of methods
      * that can convert some other common closure-like objects,
      * for example, {@link java.security.PrivilegedAction} to
      * {@link Callable} form so they can be submitted.
+     * 
+     * <p> 注意：Executors类包含一组方法，这些方法可以将其他一些类似于闭包的常见对象转换，例如将
+     * java.security.PrivilegedAction转换为Callable形式，以便可以提交它们。
      *
-     * @param task the task to submit
-     * @param <T> the type of the task's result
-     * @return a Future representing pending completion of the task
+     * @param task the task to submit - 要提交的任务
+     * @param <T> the type of the task's result - 任务结果的类型
+     * @return a Future representing pending completion of the task - 代表任务即将完成的未来
      * @throws RejectedExecutionException if the task cannot be
      *         scheduled for execution
+     *         
+     * <p> 如果任务无法安排执行
+     * 
      * @throws NullPointerException if the task is null
      */
     <T> Future<T> submit(Callable<T> task);
